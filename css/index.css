@@ -1,82 +1,81 @@
-/* --- Estilos base para evitar scroll --- */
+/* Título Principal */
+.nuestros-productos {
+    color: var(--amarillo);
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 4rem;
+    margin: 4rem 0;
+    text-transform: uppercase;
+    animation: aparecer 1s ease-in;
+}
+
+/* Grid Flexible Anti-Scroll */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil para que no se vean gigantes */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
     gap: 1.5rem;
-    padding: 1.5rem;
-    max-width: 120rem;
-    margin: 0 auto;
-    overflow: hidden; /* Evita fugas de contenido */
+    padding: 1.5rem 0;
 }
 
-/* Animación de entrada para los productos */
-@keyframes subir {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.producto {
-    background-color: #6c3483;
-    padding: 1rem;
-    border: 0.5rem solid #ffffff;
-    transition: transform 0.3s ease;
-    animation: subir 0.5s ease-out;
-    max-width: 100%; /* No permite que el producto sea más ancho que su columna */
-}
-
-.producto:hover {
-    transform: translateY(-5px);
-    border-color: #ffce00;
-}
-
-.producto__imagen {
-    width: 100%;
-    height: auto;
-    background-color: #fff;
-    display: block;
-}
-
-.producto__nombre {
-    font-family: 'Staatliches', cursive;
-    color: #fff;
-    text-align: center;
-    font-size: 2rem;
-    margin: 1rem 0 0.5rem 0;
-}
-
-.producto__precio {
-    font-family: 'Staatliches', cursive;
-    color: #ffce00;
-    text-align: center;
-    font-size: 1.8rem;
-    margin: 0;
-}
-
-/* Gráficos decorativos */
-.grafico {
-    grid-column: 1 / 3; /* Ocupa todo el ancho en móvil */
-}
-
-.grafico img {
-    width: 100%;
-    height: 180px; /* Limitamos la altura en móvil para que no sea infinita */
-    object-fit: cover;
-}
-
-/* --- Breakpoint 768px (iPad y Desktop) --- */
+/* Breakpoint para Desktop */
 @media (min-width: 768px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
+}
 
-    .producto__nombre { font-size: 2.5rem; }
-    .producto__precio { font-size: 2.2rem; }
+/* El Producto Morado */
+.producto {
+    background-color: var(--secundario);
+    padding: 1rem;
+    border: 0.5rem solid var(--blanco);
+    transition: transform .3s ease, border-color .3s ease;
+}
 
+.producto:hover {
+    transform: translateY(-5px);
+    border-color: var(--amarillo);
+}
+
+.producto__imagen {
+    width: 100%;
+    background-color: var(--blanco);
+}
+
+.producto__nombre {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.producto__precio {
+    font-family: var(--fuentePrincipal);
+    color: var(--amarillo);
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Bloques Gráficos (Ajuste para que no desborden) */
+.grafico {
+    grid-column: 1 / 3;
+}
+
+@media (min-width: 768px) {
     .grafico--camisas { grid-column: 1 / 3; }
     .grafico--node { grid-column: 2 / 4; }
-    
-    .grafico img {
-        height: auto; /* En desktop recupera su proporción original */
-    }
+}
+
+.grafico img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animación */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
