@@ -27,3 +27,21 @@ img { max-width: 100%; display: block; }
 /* Footer */
 .footer { background-color: var(--secundario); padding: 2rem 0; margin-top: 4rem; }
 .footer__texto { color: var(--blanco); text-align: center; font-size: 2rem; margin: 0; font-family: var(--fuente-heading); }
+
+/* Ajuste de fuentes fluido */
+html {
+    font-size: 55%; /* Bajamos un poco la base en móvil */
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 62.5%; /* Volvemos al tamaño estándar en desktop */
+    }
+}
+
+/* Que las imágenes no se desborden nunca */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
