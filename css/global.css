@@ -7,6 +7,26 @@
     --blanco: #ffffff;
     --negro: #000000;
 }
+
+/* Previene el scroll horizontal global */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Las imágenes nunca pueden ser más grandes que su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ajuste de caja para que los bordes no sumen ancho extra */
+* {
+    box-sizing: border-box;
+}
+
+
 html { box-sizing: border-box; font-size: 62.5%; }
 *, *:before, *:after { box-sizing: inherit; }
 body { font-family: var(--fuente-parrafos); font-size: 1.6rem; line-height: 1.5; background-color: var(--gris-claro); }
