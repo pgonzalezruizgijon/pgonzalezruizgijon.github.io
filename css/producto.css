@@ -1,96 +1,75 @@
-/* Fuente para títulos */
 .titulo-producto {
     font-family: 'Staatliches', cursive;
     color: #ffce00;
     text-align: center;
-    font-size: 5rem;
-    text-transform: uppercase;
-    margin: 4rem 0;
+    font-size: 4rem;
+    margin: 3rem 0;
 }
 
-/* Contenedor de la camisa */
+/* Contenedor flexible */
 .camisa {
     display: flex;
-    flex-direction: column; /* Móvil: Apilado vertical */
-    gap: 4rem;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 3rem;
     padding: 2rem;
+    max-width: 100%;
 }
 
 .camisa__imagen {
     width: 100%;
-    background-color: white; /* Resalta la camisa blanca */
+    max-width: 400px; /* Evitamos que la imagen sea gigante en móvil */
+    margin: 0 auto;
+    background-color: #fff;
 }
 
 .camisa__contenido p {
-    color: white;
-    font-size: 2rem;
-    line-height: 1.6;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1.5;
 }
 
-@media (min-width: 768px) {
-    .camisa {
-        flex-direction: row; /* Desktop: Dos columnas */
-        align-items: center;
-    }
-    .camisa__imagen, 
-    .camisa__contenido {
-        flex-basis: 50%;
-    }
-}
-
-/* Formulario */
+/* Formulario optimizado para dedos (Touch) */
 .formulario {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .formulario__campo {
+    width: 100%;
     background-color: transparent;
-    border: 1rem solid #6c3483; /* Morado grueso */
-    color: white;
-    font-family: Arial, sans-serif;
-    padding: 1rem;
-    font-size: 2rem;
-    appearance: none; /* Quita estilo por defecto del select */
-}
-
-.formulario__campo option {
-    background-color: #6c3483;
-    color: white;
+    border: 0.8rem solid #6c3483;
+    color: #fff;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    -webkit-appearance: none; /* Quita estilos de iOS */
 }
 
 .formulario__submit {
-    background-color: #ffce00; /* Amarillo */
+    background-color: #ffce00;
     border: none;
     font-family: 'Staatliches', cursive;
-    font-size: 3rem;
-    padding: 2rem;
-    text-transform: uppercase;
+    font-size: 2.5rem;
+    padding: 1.5rem;
     cursor: pointer;
-    transition: background-color .3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .formulario__submit:hover {
     background-color: #e6b800;
 }
 
-@keyframes latido {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-    100% { transform: scale(1); }
-}
+/* --- Breakpoint 768px (Desktop) --- */
+@media (min-width: 768px) {
+    .camisa {
+        flex-direction: row;
+        align-items: flex-start;
+    }
 
-.formulario__submit {
-    transition: background-color .3s ease, letter-spacing .3s ease;
-}
+    .camisa__imagen, 
+    .camisa__contenido {
+        flex: 1;
+    }
 
-.formulario__submit:hover {
-    animation: latido 1s infinite; /* El botón "late" suavemente */
-    letter-spacing: 2px; /* Las letras se separan un poco */
-    background-color: #ffda31;
-}
-
-.camisa__imagen {
-    animation: aparecer 1.5s ease-in;
+    .titulo-producto { font-size: 5rem; }
 }
