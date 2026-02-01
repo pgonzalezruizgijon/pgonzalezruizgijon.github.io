@@ -4,6 +4,7 @@
     text-align: center;
     font-size: 5rem;
     margin: 4rem 0;
+    text-transform: uppercase;
 }
 
 .camisa {
@@ -29,7 +30,7 @@
 
 .camisa__contenido p { font-size: 2rem; color: var(--blanco); }
 
-/* --- FORMULARIO --- */
+/* --- FORMULARIO CORREGIDO PARA PC --- */
 .formulario {
     display: grid;
     grid-template-columns: 1fr;
@@ -37,32 +38,32 @@
 }
 
 .formulario__campo {
-    /* Forzamos fondo blanco y texto negro para PC */
-    background-color: #ffffff !important; 
-    color: #000000 !important;
-    
+    /* Color de fondo y texto del campo cuando está CERRADO */
+    background-color: transparent; 
     border: 0.5rem solid var(--secundario);
+    color: var(--blanco); /* El texto que ves antes de hacer clic */
+    
     padding: 1.5rem;
     font-size: 2rem;
     font-family: Arial, sans-serif;
     
-    /* Quitamos estilos de sistema operativo */
+    /* Importante para PC: resetea el diseño del sistema */
     appearance: none;
     -webkit-appearance: none;
-    -moz-appearance: none;
     border-radius: 0;
 }
 
-/* Forzar que las opciones dentro del desplegable sean negras en PC */
+/* LA CLAVE: Estilo de las opciones cuando el menú se ABRE en PC */
 .formulario__campo option {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 10px;
+    /* Forzamos fondo blanco y letras negras para que se lean en PC */
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
-/* Para el input de número (cantidad) en PC */
-.formulario__campo[type="number"] {
-    -moz-appearance: textfield; /* Quita flechitas en Firefox */
+/* En PC, si el campo es un input de número (Cantidad) */
+input.formulario__campo {
+    background-color: transparent;
+    color: var(--blanco);
 }
 
 .formulario__submit {
