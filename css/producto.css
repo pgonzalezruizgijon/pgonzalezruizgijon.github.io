@@ -17,6 +17,15 @@
     .camisa__imagen, .camisa__contenido { flex: 1; }
 }
 
+.camisa__imagen {
+    animation: blurIn 1s ease-out;
+}
+
+@keyframes blurIn {
+    from { filter: blur(10px); opacity: 0; }
+    to { filter: blur(0); opacity: 1; }
+}
+
 .camisa__contenido p { font-size: 2rem; color: var(--blanco); }
 
 .formulario {
@@ -31,6 +40,12 @@
     color: var(--blanco);
     padding: 1.5rem;
     font-size: 2rem;
+    transition: border-color .3s ease;
+}
+
+.formulario__campo:focus {
+    outline: none;
+    border-color: var(--amarillo);
 }
 
 .formulario__submit {
@@ -41,4 +56,9 @@
     padding: 1.5rem;
     cursor: pointer;
     text-transform: uppercase;
+    transition: background-color .3s ease;
+}
+
+.formulario__submit:hover {
+    background-color: #e6b800;
 }

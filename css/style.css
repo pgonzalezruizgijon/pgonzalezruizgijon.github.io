@@ -1,27 +1,30 @@
 :root {
-    --primario: #00a8ff;   /* Azul fondo */
-    --secundario: #6c3483; /* Morado nav/productos */
+    --primario: #00a8ff;
+    --secundario: #6c3483;
     --blanco: #ffffff;
     --amarillo: #ffce00;
     --fuentePrincipal: 'Staatliches', cursive;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
-    font-size: 62.5%; 
+    font-size: 62.5%;
     overflow-x: hidden;
 }
 
 body {
     background-color: var(--primario);
     margin: 0;
-    padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
     width: 100%;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .contenedor {
@@ -30,18 +33,14 @@ body {
     margin: 0 auto;
 }
 
-/* Header */
 .header {
     display: flex;
     justify-content: center;
     padding: 3rem 0;
 }
 
-.header__logo {
-    max-width: 25rem;
-}
+.header__logo { max-width: 25rem; }
 
-/* Navegación */
 .navegacion {
     background-color: var(--secundario);
     padding: 1.5rem 0;
@@ -56,14 +55,14 @@ body {
     font-size: 2.8rem;
     text-decoration: none;
     text-transform: uppercase;
+    transition: color .3s ease, transform .3s ease;
 }
 
-.navegacion__enlace--activo,
 .navegacion__enlace:hover {
     color: var(--amarillo);
+    transform: translateY(-3px);
 }
 
-/* Footer */
 .footer {
     background-color: var(--secundario);
     padding: 2.5rem 0;

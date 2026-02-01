@@ -14,20 +14,12 @@
 }
 
 @media (min-width: 768px) {
-    .nosotros {
-        flex-direction: row;
-        align-items: center;
-    }
+    .nosotros { flex-direction: row; align-items: center; }
     .nosotros__contenido, .nosotros__imagen { flex: 1; }
 }
 
-.nosotros__contenido p {
-    color: var(--blanco);
-    font-size: 2rem;
-    line-height: 1.5;
-}
+.nosotros__contenido p { color: var(--blanco); font-size: 2rem; line-height: 1.5; }
 
-/* Iconos */
 .comprar__titulo {
     font-family: var(--fuentePrincipal);
     color: var(--amarillo);
@@ -38,7 +30,7 @@
 
 .bloques {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 y 2 en móvil */
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     padding-bottom: 5rem;
 }
@@ -48,8 +40,16 @@
 }
 
 .bloque { text-align: center; transition: transform .3s ease; }
-.bloque:hover { transform: scale(1.05); }
 
-.bloque__icono { width: 8rem; margin-bottom: 2rem; }
+.bloque__icono { 
+    width: 8rem; 
+    margin-bottom: 2rem; 
+    transition: transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bloque:hover .bloque__icono {
+    transform: rotate(15deg) scale(1.1);
+}
+
 .bloque__titulo { color: var(--amarillo); font-family: var(--fuentePrincipal); font-size: 2.5rem; }
 .bloque p { color: var(--blanco); font-size: 1.6rem; }
