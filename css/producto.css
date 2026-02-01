@@ -18,6 +18,7 @@
 }
 
 .camisa__imagen {
+    background-color: var(--blanco);
     animation: blurIn 1s ease-out;
 }
 
@@ -28,6 +29,7 @@
 
 .camisa__contenido p { font-size: 2rem; color: var(--blanco); }
 
+/* --- FORMULARIO CORREGIDO --- */
 .formulario {
     display: grid;
     grid-template-columns: 1fr;
@@ -37,15 +39,26 @@
 .formulario__campo {
     background-color: transparent;
     border: 0.5rem solid var(--secundario);
-    color: var(--blanco);
+    color: var(--blanco); /* Texto en el input/select principal */
     padding: 1.5rem;
     font-size: 2rem;
     transition: border-color .3s ease;
+    -webkit-appearance: none; /* Limpia estilos de iPhone */
+    appearance: none;
 }
 
+/* AQUÍ LA CORRECCIÓN DE LAS TALLAS */
+.formulario__campo option {
+    background-color: var(--blanco); /* Fondo blanco para el desplegable */
+    color: #000000;                  /* Letras negras para que se lean bien */
+    font-family: Arial, sans-serif;
+}
+
+/* Para navegadores que no permiten cambiar el fondo del option (como algunos móviles) */
 .formulario__campo:focus {
     outline: none;
     border-color: var(--amarillo);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .formulario__submit {
