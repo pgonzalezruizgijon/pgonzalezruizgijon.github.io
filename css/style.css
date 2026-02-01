@@ -1,0 +1,135 @@
+:root {
+    --primario: #00a8ff;
+    --secundario: #6c3483;
+    --blanco: #ffffff;
+    --amarillo: #ffce00;
+    /* Usa el nombre exacto del archivo que tienes en la carpeta fonts */
+    --fuentePrincipal: 'Staatliches', cursive; 
+}
+
+body {
+    background-color: var(--primario);
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.navegacion {
+    background-color: var(--secundario);
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.navegacion__enlace {
+    color: var(--blanco);
+    text-decoration: none;
+    font-family: var(--fuentePrincipal);
+    font-size: 2.4rem;
+    text-transform: uppercase;
+}
+
+.titulo {
+    color: var(--amarillo);
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.producto {
+    background-color: var(--secundario);
+    padding: 1rem;
+    border: 0.5rem solid var(--blanco);
+}
+
+.producto__imagen {
+    width: 100%;
+    background-color: var(--blanco);
+}
+
+.producto__nombre {
+    color: var(--blanco);
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.producto__precio {
+    color: var(--amarillo);
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Imagen grande decorativa que ocupa espacio en el grid */
+.grafico--camisas {
+    grid-column: 1 / 3;
+}
+@media (min-width: 768px) {
+    .grafico--camisas { grid-column: 1 / 3; }
+}
+
+.footer {
+    background-color: var(--secundario);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.footer__texto {
+    color: var(--blanco);
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 1.8rem;
+}
+
+/* Animaciones */
+@keyframes entradaTitulo {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Aplicar a elementos globales */
+.header {
+    animation: aparecer 1s ease-in-out;
+}
+
+.navegacion__enlace {
+    transition: color .3s ease, transform .3s ease;
+}
+
+.navegacion__enlace:hover {
+    transform: scale(1.1); /* Crece un poquito al pasar el ratón */
+}

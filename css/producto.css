@@ -1,0 +1,96 @@
+/* Fuente para títulos */
+.titulo-producto {
+    font-family: 'Staatliches', cursive;
+    color: #ffce00;
+    text-align: center;
+    font-size: 5rem;
+    text-transform: uppercase;
+    margin: 4rem 0;
+}
+
+/* Contenedor de la camisa */
+.camisa {
+    display: flex;
+    flex-direction: column; /* Móvil: Apilado vertical */
+    gap: 4rem;
+    padding: 2rem;
+}
+
+.camisa__imagen {
+    width: 100%;
+    background-color: white; /* Resalta la camisa blanca */
+}
+
+.camisa__contenido p {
+    color: white;
+    font-size: 2rem;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .camisa {
+        flex-direction: row; /* Desktop: Dos columnas */
+        align-items: center;
+    }
+    .camisa__imagen, 
+    .camisa__contenido {
+        flex-basis: 50%;
+    }
+}
+
+/* Formulario */
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.formulario__campo {
+    background-color: transparent;
+    border: 1rem solid #6c3483; /* Morado grueso */
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 1rem;
+    font-size: 2rem;
+    appearance: none; /* Quita estilo por defecto del select */
+}
+
+.formulario__campo option {
+    background-color: #6c3483;
+    color: white;
+}
+
+.formulario__submit {
+    background-color: #ffce00; /* Amarillo */
+    border: none;
+    font-family: 'Staatliches', cursive;
+    font-size: 3rem;
+    padding: 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.formulario__submit:hover {
+    background-color: #e6b800;
+}
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.formulario__submit {
+    transition: background-color .3s ease, letter-spacing .3s ease;
+}
+
+.formulario__submit:hover {
+    animation: latido 1s infinite; /* El botón "late" suavemente */
+    letter-spacing: 2px; /* Las letras se separan un poco */
+    background-color: #ffda31;
+}
+
+.camisa__imagen {
+    animation: aparecer 1.5s ease-in;
+}
