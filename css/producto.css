@@ -29,7 +29,7 @@
 
 .camisa__contenido p { font-size: 2rem; color: var(--blanco); }
 
-/* --- FORMULARIO CORREGIDO --- */
+/* --- FORMULARIO --- */
 .formulario {
     display: grid;
     grid-template-columns: 1fr;
@@ -37,28 +37,32 @@
 }
 
 .formulario__campo {
-    background-color: transparent;
+    /* Forzamos fondo blanco y texto negro para PC */
+    background-color: #ffffff !important; 
+    color: #000000 !important;
+    
     border: 0.5rem solid var(--secundario);
-    color: var(--blanco); /* Texto en el input/select principal */
     padding: 1.5rem;
     font-size: 2rem;
-    transition: border-color .3s ease;
-    -webkit-appearance: none; /* Limpia estilos de iPhone */
-    appearance: none;
-}
-
-/* AQUÍ LA CORRECCIÓN DE LAS TALLAS */
-.formulario__campo option {
-    background-color: var(--blanco); /* Fondo blanco para el desplegable */
-    color: #000000;                  /* Letras negras para que se lean bien */
     font-family: Arial, sans-serif;
+    
+    /* Quitamos estilos de sistema operativo */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
 }
 
-/* Para navegadores que no permiten cambiar el fondo del option (como algunos móviles) */
-.formulario__campo:focus {
-    outline: none;
-    border-color: var(--amarillo);
-    background-color: rgba(255, 255, 255, 0.1);
+/* Forzar que las opciones dentro del desplegable sean negras en PC */
+.formulario__campo option {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+}
+
+/* Para el input de número (cantidad) en PC */
+.formulario__campo[type="number"] {
+    -moz-appearance: textfield; /* Quita flechitas en Firefox */
 }
 
 .formulario__submit {
@@ -69,6 +73,7 @@
     padding: 1.5rem;
     cursor: pointer;
     text-transform: uppercase;
+    color: #000000;
     transition: background-color .3s ease;
 }
 
