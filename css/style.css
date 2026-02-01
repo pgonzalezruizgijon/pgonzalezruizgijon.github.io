@@ -7,10 +7,34 @@
     --fuentePrincipal: 'Staatliches', cursive; 
 }
 
+/* Previene el scroll horizontal global */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Las imágenes nunca pueden ser más grandes que su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+* {
+    box-sizing: border-box; /* Fundamental para que el padding no rompa el ancho */
+}
+
 body {
-    background-color: var(--primario);
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    overflow-x: hidden; /* El toque final contra el scroll lateral */
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    width: 95%; /* Deja un pequeño margen de seguridad a los lados */
+    margin: 0 auto;
 }
 
 .header {
@@ -133,3 +157,4 @@ body {
 .navegacion__enlace:hover {
     transform: scale(1.1); /* Crece un poquito al pasar el ratón */
 }
+
