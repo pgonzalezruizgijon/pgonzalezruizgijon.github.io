@@ -1,154 +1,82 @@
-/* --- 1. Definición de Animaciones --- */
-@keyframes entradaTitulo {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes aparecerFade {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes subirProducto {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* --- 2. Estilos del Título --- */
-.nuestros-productos {
-    color: #ffce00;
-    text-align: center;
-    font-family: 'Staatliches', cursive;
-    font-size: 4rem;
-    margin-top: 5rem;
-    text-transform: uppercase;
-    animation: entradaTitulo 0.8s ease-out; /* Animación al cargar */
-}
-
-/* --- 3. Grid y Layout --- */
+/* --- Estilos base para evitar scroll --- */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Móvil */
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil para que no se vean gigantes */
+    gap: 1.5rem;
+    padding: 1.5rem;
     max-width: 120rem;
     margin: 0 auto;
-    padding: 2rem;
-    animation: aparecerFade 1.2s ease-in; /* Aparece suavemente */
+    overflow: hidden; /* Evita fugas de contenido */
 }
 
-/* Gráficos en móvil */
-.grafico {
-    grid-column: 1 / 3;
+/* Animación de entrada para los productos */
+@keyframes subir {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr); /* Desktop */
-    }
-
-    /* Comportamiento de bloques grandes según tus capturas */
-    .grafico--camisas {
-        grid-column: 1 / 3;
-    }
-    
-    .grafico--node {
-        grid-column: 2 / 4;
-    }
-}
-
-/* --- 4. Estilos de Producto e Interacción --- */
 .producto {
     background-color: #6c3483;
     padding: 1rem;
     border: 0.5rem solid #ffffff;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    animation: subirProducto 0.6s ease-out; /* Los productos "suben" al cargar */
+    transition: transform 0.3s ease;
+    animation: subir 0.5s ease-out;
+    max-width: 100%; /* No permite que el producto sea más ancho que su columna */
 }
 
-/* Efecto Hover (Interacción) */
 .producto:hover {
-    transform: translateY(-10px) scale(1.02); /* Sube y crece un poco */
-    border-color: #ffce00; /* El borde cambia al amarillo de la marca */
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+    transform: translateY(-5px);
+    border-color: #ffce00;
 }
 
 .producto__imagen {
     width: 100%;
-    background-color: white;
-    transition: opacity 0.3s ease;
-}
-
-.producto:hover .producto__imagen {
-    opacity: 0.9; /* Efecto visual en la imagen al hacer hover */
+    height: auto;
+    background-color: #fff;
+    display: block;
 }
 
 .producto__nombre {
     font-family: 'Staatliches', cursive;
-    color: #ffffff;
+    color: #fff;
     text-align: center;
-    font-size: 2.5rem;
-    margin: 1rem 0;
+    font-size: 2rem;
+    margin: 1rem 0 0.5rem 0;
 }
 
 .producto__precio {
     font-family: 'Staatliches', cursive;
     color: #ffce00;
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     margin: 0;
 }
 
-/* Estilo para las imágenes decorativas grandes */
+/* Gráficos decorativos */
+.grafico {
+    grid-column: 1 / 3; /* Ocupa todo el ancho en móvil */
+}
+
 .grafico img {
     width: 100%;
-    height: 100%;
+    height: 180px; /* Limitamos la altura en móvil para que no sea infinita */
     object-fit: cover;
-    display: block;
-    border-radius: 0; 
 }
 
-/* --- Grid Ultra-Responsive --- */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr; /* 1 columna en móviles pequeños */
-    gap: 2rem;
-    max-width: 120rem;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* iPhones y móviles modernos */
-@media (min-width: 480px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
-}
-
-/* Tablets (iPad, etc) */
+/* --- Breakpoint 768px (iPad y Desktop) --- */
 @media (min-width: 768px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
+
+    .producto__nombre { font-size: 2.5rem; }
+    .producto__precio { font-size: 2.2rem; }
+
     .grafico--camisas { grid-column: 1 / 3; }
     .grafico--node { grid-column: 2 / 4; }
-}
-
-/* Pantallas muy grandes */
-@media (min-width: 1200px) {
-    .grid {
-        gap: 3rem; /* Más espacio para que respire */
+    
+    .grafico img {
+        height: auto; /* En desktop recupera su proporción original */
     }
 }
