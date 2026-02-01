@@ -1,34 +1,24 @@
 .titulo-producto {
-    font-family: 'Staatliches', cursive;
-    color: #ffce00;
+    font-family: var(--fuentePrincipal);
+    color: var(--amarillo);
     text-align: center;
-    font-size: 4rem;
-    margin: 3rem 0;
+    font-size: 5rem;
+    margin: 4rem 0;
 }
 
-/* Contenedor flexible */
 .camisa {
     display: flex;
-    flex-direction: column; /* Apilado en móvil */
+    flex-direction: column;
     gap: 3rem;
-    padding: 2rem;
-    max-width: 100%;
 }
 
-.camisa__imagen {
-    width: 100%;
-    max-width: 400px; /* Evitamos que la imagen sea gigante en móvil */
-    margin: 0 auto;
-    background-color: #fff;
+@media (min-width: 768px) {
+    .camisa { flex-direction: row; align-items: center; }
+    .camisa__imagen, .camisa__contenido { flex: 1; }
 }
 
-.camisa__contenido p {
-    color: #fff;
-    font-size: 1.8rem;
-    line-height: 1.5;
-}
+.camisa__contenido p { font-size: 2rem; color: var(--blanco); }
 
-/* Formulario optimizado para dedos (Touch) */
 .formulario {
     display: grid;
     grid-template-columns: 1fr;
@@ -36,40 +26,19 @@
 }
 
 .formulario__campo {
-    width: 100%;
     background-color: transparent;
-    border: 0.8rem solid #6c3483;
-    color: #fff;
+    border: 0.5rem solid var(--secundario);
+    color: var(--blanco);
     padding: 1.5rem;
-    font-size: 1.8rem;
-    -webkit-appearance: none; /* Quita estilos de iOS */
+    font-size: 2rem;
 }
 
 .formulario__submit {
-    background-color: #ffce00;
+    background-color: var(--amarillo);
     border: none;
-    font-family: 'Staatliches', cursive;
-    font-size: 2.5rem;
+    font-family: var(--fuentePrincipal);
+    font-size: 3rem;
     padding: 1.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.formulario__submit:hover {
-    background-color: #e6b800;
-}
-
-/* --- Breakpoint 768px (Desktop) --- */
-@media (min-width: 768px) {
-    .camisa {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .camisa__imagen, 
-    .camisa__contenido {
-        flex: 1;
-    }
-
-    .titulo-producto { font-size: 5rem; }
+    text-transform: uppercase;
 }

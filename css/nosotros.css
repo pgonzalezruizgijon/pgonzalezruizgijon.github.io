@@ -1,107 +1,55 @@
-/* Definimos la fuente para que coincida con el index */
-.titulo-nosotros, 
-.comprar__titulo, 
-.bloque__titulo {
-    font-family: 'Staatliches', cursive;
-    text-transform: uppercase;
-    color: #ffce00;
-    text-align: center;
-}
-
 .titulo-nosotros {
+    font-family: var(--fuentePrincipal);
+    color: var(--amarillo);
+    text-align: center;
     font-size: 5rem;
     margin: 4rem 0;
+    text-transform: uppercase;
 }
 
-/* Flexbox para Nosotros (Responsive) */
 .nosotros {
     display: flex;
-    flex-direction: column; /* Móvil */
-    gap: 4rem;
-    padding: 0 2rem;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 @media (min-width: 768px) {
     .nosotros {
-        flex-direction: row; /* Desktop */
+        flex-direction: row;
         align-items: center;
     }
-    .nosotros__contenido, .nosotros__imagen {
-        flex: 1;
-    }
+    .nosotros__contenido, .nosotros__imagen { flex: 1; }
 }
 
 .nosotros__contenido p {
-    color: #ffffff;
+    color: var(--blanco);
     font-size: 2rem;
     line-height: 1.5;
-    margin-bottom: 2rem;
 }
 
-/* Sección Iconos */
+/* Iconos */
 .comprar__titulo {
+    font-family: var(--fuentePrincipal);
+    color: var(--amarillo);
+    text-align: center;
     font-size: 4rem;
     margin: 5rem 0;
 }
 
 .bloques {
     display: grid;
-    grid-template-columns: 1fr; /* Móvil */
-    gap: 4rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 y 2 en móvil */
+    gap: 3rem;
     padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
-    .bloques {
-        grid-template-columns: repeat(4, 1fr); /* Desktop */
-    }
+    .bloques { grid-template-columns: repeat(4, 1fr); }
 }
 
-.bloque {
-    text-align: center;
-}
+.bloque { text-align: center; transition: transform .3s ease; }
+.bloque:hover { transform: scale(1.05); }
 
-.bloque__icono {
-    width: 10rem;
-    margin-bottom: 2rem;
-}
-
-.bloque__titulo {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.bloque p {
-    color: #ffffff;
-    font-size: 1.6rem;
-    padding: 0 1rem;
-}
-
-.titulo-nosotros {
-    animation: entradaTitulo 1s ease-in;
-}
-
-.nosotros__imagen {
-    transition: filter .5s ease;
-}
-
-.nosotros__imagen:hover {
-    filter: brightness(1.1); /* Brilla un poco al pasar el ratón */
-}
-
-/* Efecto en los bloques de iconos */
-.bloque {
-    transition: transform .3s ease;
-}
-
-.bloque:hover {
-    transform: scale(1.05);
-}
-
-.bloque__icono {
-    transition: transform .5s ease-in-out;
-}
-
-.bloque:hover .bloque__icono {
-    transform: rotate(10deg); /* El icono se inclina un poco */
-}
+.bloque__icono { width: 8rem; margin-bottom: 2rem; }
+.bloque__titulo { color: var(--amarillo); font-family: var(--fuentePrincipal); font-size: 2.5rem; }
+.bloque p { color: var(--blanco); font-size: 1.6rem; }
